@@ -1,0 +1,14 @@
+^Rd2\.pdf$
+^Makefile$
+^assets$
+^vignette-data$
+^.*\.tar\.gz$
+^.*\.Rcheck$
+^\.travis\.yml$
+^appveyor.yml$
+^.*\.log$
+^.*\.Rproj$
+^\.Rproj\.user$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
