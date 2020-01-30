@@ -1,6 +1,7 @@
 # visRam
 
 [![Build Status](https://travis-ci.org/bailliem/visRam.png?branch=master)](https://travis-ci.org/bailliem/visRam)  [![codecov](https://codecov.io/gh/bailliem/visRam/branch/master/graph/badge.svg)](https://codecov.io/gh/bailliem/visRam)
+[![Build status](https://ci.appveyor.com/api/projects/status/ujnwcm2i8fndvvmd?svg=true)](https://ci.appveyor.com/project/bailliem/visram)
 
 ## How to finish setting up your new package
 
