@@ -24,9 +24,28 @@ library(magrittr)
 library(dplyr)
 library(ggplot2)
 library(broom)
+library(patchwork)
 
-survfit(Surv(time, status) ~ sex, data = lung) %>% 
+fit <- survfit(Surv(time, status) ~ sex, data = lung) 
+
+a <- fit %>% 
   tidy() %>% 
   autoplot_surv()
+a
 ```
 
+
+Display risk table
+```{r}
+b <- autotab_risk(fit, 500) %>%
+  ggplot(aes(x = time, y = strata, label = n.risk)) + 
+  geom_text() 
+b
+```
+
+
+```{r}
+a / b
+```
+
+TODO: How to add to displayed ggplot object. ggproto? e.g. add facetting by strata. 

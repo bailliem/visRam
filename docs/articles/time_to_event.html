@@ -106,11 +106,24 @@
 <a class="sourceLine" id="cb2-11" title="11"><span class="co">#&gt;     intersect, setdiff, setequal, union</span></a>
 <a class="sourceLine" id="cb2-12" title="12"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(ggplot2)</a>
 <a class="sourceLine" id="cb2-13" title="13"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(broom)</a>
-<a class="sourceLine" id="cb2-14" title="14"></a>
-<a class="sourceLine" id="cb2-15" title="15"><span class="kw">survfit</span>(<span class="kw">Surv</span>(time, status) <span class="op">~</span><span class="st"> </span>sex, <span class="dt">data =</span> lung) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb2-16" title="16"><span class="st">  </span><span class="kw">tidy</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb2-17" title="17"><span class="st">  </span><span class="kw"><a href="../reference/autoplot_surv.html">autoplot_surv</a></span>()</a></code></pre></div>
+<a class="sourceLine" id="cb2-14" title="14"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(patchwork)</a>
+<a class="sourceLine" id="cb2-15" title="15"></a>
+<a class="sourceLine" id="cb2-16" title="16">fit &lt;-<span class="st"> </span><span class="kw">survfit</span>(<span class="kw">Surv</span>(time, status) <span class="op">~</span><span class="st"> </span>sex, <span class="dt">data =</span> lung) </a>
+<a class="sourceLine" id="cb2-17" title="17"></a>
+<a class="sourceLine" id="cb2-18" title="18">a &lt;-<span class="st"> </span>fit <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb2-19" title="19"><span class="st">  </span><span class="kw">tidy</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb2-20" title="20"><span class="st">  </span><span class="kw"><a href="../reference/autoplot_surv.html">autoplot_surv</a></span>()</a>
+<a class="sourceLine" id="cb2-21" title="21">a</a></code></pre></div>
 <p><img src="time_to_event_files/figure-html/unnamed-chunk-2-1.png" width="700"></p>
+<p>Display risk table</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1">b &lt;-<span class="st"> </span><span class="kw"><a href="../reference/autotab_risk.html">autotab_risk</a></span>(fit, <span class="dv">500</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> time, <span class="dt">y =</span> strata, <span class="dt">label =</span> n.risk)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="st">  </span><span class="kw">geom_text</span>() </a>
+<a class="sourceLine" id="cb3-4" title="4">b</a></code></pre></div>
+<p><img src="time_to_event_files/figure-html/unnamed-chunk-3-1.png" width="700"></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1">a <span class="op">/</span><span class="st"> </span>b</a></code></pre></div>
+<p><img src="time_to_event_files/figure-html/unnamed-chunk-4-1.png" width="700"></p>
+<p>TODO: How to add to displayed ggplot object. ggproto? e.g. add facetting by strata.</p>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

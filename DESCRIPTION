@@ -28,5 +28,6 @@ Imports:
     survival,
     broom,
     magrittr,
-    ggplot2
+    ggplot2,
+    patchwork
 VignetteBuilder: knitr
