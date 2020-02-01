@@ -17,9 +17,16 @@ BugReports: https://github.com/bailliem/visRam/issues
 License: MIT + file LICENSE
 Depends:
     R (>= 3.0.0)
-Imports:
 Suggests:
     covr,
-    testthat
-RoxygenNote: 6.0.0
+    testthat (>= 2.1.0),
+    knitr,
+    rmarkdown
+RoxygenNote: 7.0.2
 Roxygen: list(markdown = TRUE)
+Imports: 
+    survival,
+    broom,
+    magrittr,
+    ggplot2
+VignetteBuilder: knitr

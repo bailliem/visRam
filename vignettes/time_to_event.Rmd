@@ -1,0 +1,32 @@
+---
+title: "time_to_event"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{time_to_event}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(visRam)
+```
+
+```{r}
+library(survival)
+library(magrittr)
+library(dplyr)
+library(ggplot2)
+library(broom)
+
+survfit(Surv(time, status) ~ sex, data = lung) %>% 
+  tidy() %>% 
+  autoplot_surv()
+```
+
