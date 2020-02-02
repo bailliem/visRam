@@ -1,5 +1,5 @@
-#' Plot line plot based on a survival or time to event analysis
-#'
+#' Plot (step) line plot based on a survival or time to event analysis
+#' TODO: change name of function to step plot?
 #' @param x tidy tibble from broom
 #'
 #' @return ggplot object
@@ -19,7 +19,7 @@ autoplot_surv <- function(x) {
   gg <-
     df %>%
     ggplot2::ggplot(aes(time, estimate, group = strata)) +
-    geom_line() +
+    geom_step() +
     geom_linerange(aes(ymin = conf.low, ymax = conf.high), alpha = 0.2) +
     geom_point(
       data = df %>% dplyr::filter(n.censor > 0),
